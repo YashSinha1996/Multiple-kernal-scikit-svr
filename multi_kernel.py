@@ -81,7 +81,7 @@ def multi_kernel_maker(x,y,kernel_list):
 		c=svr.fit(x,y)
 	"""
 	betas=beta_finder(x,y,kernel_list)
-	print(betas)
+	#print(betas)
 	def multi_kernal(x1,x2):
 		"""
 		Arguments: 	x1,x2 inputs for kernel function
@@ -94,3 +94,33 @@ def multi_kernel_maker(x,y,kernel_list):
 				mat[a][b]=sum([betas[i]*kernel(x1[a],x2[b]) for i,kernel in enumerate(kernel_list)])
 		return mat
 	return multi_kernal
+
+
+def multi_kernel_maker_betas(x,y,kernel_list):
+	"""
+	Argments:	x (training data inputs) (as a numpy matrix)
+			y (training data outputs) (as a numpy array/matrix of shape(n,1)) Supports only singly output as for now
+			kernel lists (a list of kernal functions)
+	Returns:	a callable, which returns the kernal matrixes of the input
+
+	Example Use Case:
+		x=np.matrix([[1,2],[2,4],[3,6],[4,8],[5,10]])
+		y=np.array([2,4,6,8,10])
+		a=multi_kernel_maker(x,y,[lin(),rbf(),sig(),poly(power=2)])
+		svr=SVR(kernel=a)
+		c=svr.fit(x,y)
+	"""
+	betas=beta_finder(x,y,kernel_list)
+	#print(betas)
+	def multi_kernal(x1,x2):
+		"""
+		Arguments: 	x1,x2 inputs for kernel function
+
+		Returns:	Kernel Matrix of x1 & x2
+		"""
+		mat=np.zeros((x1.shape[0],x2.shape[0]))
+		for a in range(x1.shape[0]):
+			for b in range(x2.shape[0]):
+				mat[a][b]=sum([betas[i]*kernel(x1[a],x2[b]) for i,kernel in enumerate(kernel_list)])
+		return mat
+	return (multi_kernal,betas)
