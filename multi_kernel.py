@@ -23,7 +23,7 @@ def lin(offset=0):
 def poly(power=3,offset=0):
 	"""
 	Argments:	power (default 3) 
-				offset (defaut 0)
+			offset (defaut 0)
 	Returns:	a callable which returns math.pow(x1.dot(x2.transpose())+offset,power) for some x1,x2
 	"""
 	def poly_fun(x1,x2):
