@@ -81,11 +81,9 @@ def multi_kernel_maker(x,y,kernel_list):
 		c=svr.fit(x,y)
 	"""
 	betas=beta_finder(x,y,kernel_list)
-	#print(betas)
 	def multi_kernal(x1,x2):
 		"""
-		Arguments: 	x1,x2 inputs for kernel function
-
+		Arguments: 	x1,x2 inputs for kernel functio
 		Returns:	Kernel Matrix of x1 & x2
 		"""
 		mat=np.zeros((x1.shape[0],x2.shape[0]))
@@ -111,11 +109,9 @@ def multi_kernel_maker_betas(x,y,kernel_list):
 		c=svr.fit(x,y)
 	"""
 	betas=beta_finder(x,y,kernel_list)
-	#print(betas)
 	def multi_kernal(x1,x2):
 		"""
 		Arguments: 	x1,x2 inputs for kernel function
-
 		Returns:	Kernel Matrix of x1 & x2
 		"""
 		mat=np.zeros((x1.shape[0],x2.shape[0]))
