@@ -1,5 +1,6 @@
 # Multiple-kernal-scikit-svr
-A Kernel Maker Module which can easily be integrated with sklearn's SVR module
+A Kernel Maker Module which can easily be integrated with sklearn's SVR module.
+
 A Sample Use Case:
 ```
 x=np.matrix([[1,2],[2,4],[3,6],[4,8],[5,10]])
