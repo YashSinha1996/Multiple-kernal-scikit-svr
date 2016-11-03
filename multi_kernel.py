@@ -33,7 +33,7 @@ def poly(power=3,offset=0):
 def sig(alpha=1.0,offset=0):
 	"""
 	Argments:	alpha (default 1.0) 
-				offset (defaut 0)
+			offset (defaut 0)
 	Returns:	a callable which returns math.tanh(alpha*1.0*x1.dot(x2.transpose())+offset) for some x1,x2
 	"""
 	def sig_fun(x1,x2):
@@ -56,8 +56,8 @@ def A(kernel_mat1,kernel_mat2):
 def beta_finder(x,y,kernel_list):
 	"""
 	Argments:	x (training data inputs) (as a numpy matrix)
-				y (training data outputs) (as a numpy array/matrix of shape(n,1)) Supports only singly output as for now
-				kernel lists (a list of kernal functions)
+			y (training data outputs) (as a numpy array/matrix of shape(n,1)) Supports only singly output as for now
+			kernel lists (a list of kernal functions)
 	Returns:	A list in the order of kernels indicating weight of every kernel
 	"""
 	y=np.matrix(y).reshape(y.shape[0],1)
@@ -69,8 +69,8 @@ def beta_finder(x,y,kernel_list):
 def multi_kernel_maker(x,y,kernel_list):
 	"""
 	Argments:	x (training data inputs) (as a numpy matrix)
-				y (training data outputs) (as a numpy array/matrix of shape(n,1)) Supports only singly output as for now
-				kernel lists (a list of kernal functions)
+			y (training data outputs) (as a numpy array/matrix of shape(n,1)) Supports only singly output as for now
+			kernel lists (a list of kernal functions)
 	Returns:	a callable, which returns the kernal matrixes of the input
 
 	Example Use Case:
